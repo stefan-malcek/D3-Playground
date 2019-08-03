@@ -35,7 +35,7 @@ d3.json("data/coins.json").then(function (data) {
 
     let i = 1;
     for (var coin in formattedData) {
-        lineCharts.push(new LineChart(`#chart-area${i}`, formattedData[coin]));
+        lineCharts.push(new LineChart(`#chart-area${i}`, formattedData[coin], coin));
         i++;
     }
 });

@@ -1,7 +1,8 @@
 
-LineChart = function (_parentElement, _formattedData) {
+LineChart = function (_parentElement, _formattedData, _title) {
     this.parentElement = _parentElement;
     this.formattedData = _formattedData;
+    this.title = _title;
 
     this.initVis();
 }
@@ -47,6 +48,13 @@ LineChart.prototype.initVis = function () {
         .attr("transform", "translate(0," + vis.height + ")");
     vis.yAxis = vis.g.append("g")
         .attr("class", "y axis");
+
+    vis.g.append('text')
+        .attr('y', -15)
+        .attr('x', -15)
+        .attr('font-size', '12px')
+        .attr('text-anchor', 'start')
+        .text(vis.title);
 
     vis.wrangleData();
 };
